@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+#first{
+border:solid 3px;
+border-color:red;
+height:45px;
+
+  overflow:hidden; overflow-y:scroll;
+}
+#second{
+border:solid 3px;
+border-color:blue;
+height:45px;
+
+  overflow:hidden; overflow-y:scroll;
+}
+.box{
+	height:20px;
+	width:20px;
+	border-radius:50%;
+}
+
+
+</style>
+<script>
+function setColor() {
+		var colorData;
+
+		var oReq = new XMLHttpRequest();
+		oReq.onload = reqListener;
+		oReq.open("get", "ColorNameMap.json", true);
+		oReq.send();
+
+		function reqListener(e) {
+			var x;
+			jsonData = JSON.parse(this.responseText);			
+			for (x = 0; x < jsonData.length; x++){
+				var listItem = document.createElement("li");
+				listItem.className = "litem"; 
+				listItem.id = "list1" + x;
+				var box 	 = document.createElement("div");
+				var color  	 = document.createTextNode(jsonData[x].color + " " + jsonData[x].value);
+
+				box.className = "box";
+				box.style.background = jsonData[x].value;
+				
+				listItem.appendChild(color);
+				listItem.appendChild(box);
+				document.getElementById("first").appendChild(listItem);
+			
+			}
+			for (x = 0; x < jsonData.length; x++){
+				var listItem = document.createElement("li");
+				listItem.className = "litem"; 
+				listItem.id = "list1" + x;
+				var box 	 = document.createElement("div");
+				var color  	 = document.createTextNode(jsonData[x].color + " " + jsonData[x].value);
+
+				box.className = "box";
+				box.style.background = jsonData[x].value;
+				
+				listItem.appendChild(color);
+				listItem.appendChild(box);
+				document.getElementById("second").appendChild(listItem);
+			
+			}
+		}
+	}
+	window.onload = setColor;
+</script>
+</head>
+<body>
+	<div class = "top">
+		<ul id = "first"></ul>
+	</div>
+	<div class = "bottom">
+		<ul id = "second"></ul>
+	</div>
+
+</body>
+</html>
