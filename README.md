@@ -21,4 +21,4 @@ Simply open the html file in your web browser
 * [CSS] - Cascading Style Sheets
 ## Authors
 
-* **Muhammad Moaz Khan**
+* **Muhammad Moaz Khan** - (https://github.com/moazkh60) 
