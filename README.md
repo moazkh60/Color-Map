@@ -1,4 +1,4 @@
-# Project Title
+# Color Map
 
 The main task in this lab was to fetch json data from the file provided and make a color map.
 
